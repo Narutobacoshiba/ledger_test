@@ -34,8 +34,8 @@ actor Self{
         await Ledger.account_balance({ account = myAccountId() })
     };
 
-    // Transfer amout from default account of this canister to principal
-    public shared({caller}) func transferToIdentity(args : Account.TransferArgs) : async Text{
+    // Transfer amout from canister to principal
+    public shared({caller}) func transferTo(args : Account.TransferArgs) : async Text{
         let now = Time.now();
         let transfer_args = {
             memo = args.memo;
